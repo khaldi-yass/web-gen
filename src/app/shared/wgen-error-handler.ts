@@ -1,13 +1,13 @@
 import {ErrorHandler, Injectable} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {WGenDynamicComponentFactory} from './w-gen-dynamic-component-factory';
-import {AlertComponent} from '../alert/alert.component';
-import {AlertColor} from '../alert/utils/alert.types';
+import {WgenDynamicComponentFactory} from './wgen-dynamic-component-factory';
+import {WgenAlertComponent} from '../wgen-alert/wgen-alert.component';
+import {WgenAlertColor} from './wgen.types';
 
 @Injectable({providedIn: 'root'})
 export class WgenErrorHandler implements ErrorHandler {
 
-  constructor(private componentFactory: WGenDynamicComponentFactory) {
+  constructor(private componentFactory: WgenDynamicComponentFactory) {
   }
 
   private static getServerMessage(response: HttpErrorResponse): string {
@@ -30,12 +30,12 @@ export class WgenErrorHandler implements ErrorHandler {
       message = error.message ? error.message : error.toString();
       emphasis = error.name + ': ';
     }
-    // Show alert
+    // Show wgen-alert
     this.showAlert(message, emphasis, 'danger');
   }
 
-  private showAlert(message: string, emphasis: string, color: AlertColor) {
-    const alertRef = this.componentFactory.add(AlertComponent, '#DynAlertComp');
+  private showAlert(message: string, emphasis: string, color: WgenAlertColor) {
+    const alertRef = this.componentFactory.add(WgenAlertComponent, '#DynAlertComp');
     alertRef.instance.message = message;
     alertRef.instance.emphasis = emphasis;
     alertRef.instance.color = color;

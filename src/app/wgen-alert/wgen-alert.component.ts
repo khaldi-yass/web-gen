@@ -1,14 +1,14 @@
 import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {AlertColor} from './utils/alert.types';
+import {WgenAlertColor} from '../shared/wgen.types';
 
 @Component({
   selector: 'wgen-alert',
-  templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss']
+  templateUrl: './wgen-alert.component.html',
+  styleUrls: ['./wgen-alert.component.scss']
 })
-export class AlertComponent implements OnInit {
+export class WgenAlertComponent implements OnInit {
 
-  @Input() color: AlertColor = 'light';
+  @Input() color: WgenAlertColor = 'light';
   @Input() message: string;
   @Input() emphasis: string;
   @ViewChild('alert', {static: true}) alert: ElementRef;
@@ -18,7 +18,7 @@ export class AlertComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.renderer.addClass(this.alert.nativeElement, 'alert-' + this.color.valueOf());
+    this.renderer.addClass(this.alert.nativeElement, 'wgen-alert-' + this.color.valueOf());
   }
 
   closeAlert() {

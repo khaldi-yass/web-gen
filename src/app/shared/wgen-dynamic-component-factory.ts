@@ -22,7 +22,7 @@ export type ComponentType<T> = new (...args: any[]) => T;
 @Injectable({
   providedIn: 'root'
 })
-export class WGenDynamicComponentFactory {
+export class WgenDynamicComponentFactory {
 
   private components: ComponentRef<any>[] = [];
   private appRef: ApplicationRef;

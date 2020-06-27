@@ -1,6 +1,8 @@
 <mdb-breadcrumb [customClass]="model.getCustomClasses()" [ngClass]="model.getClasses()">
   <ng-container *ngFor="let item of model.items;let i=index">
-    <mdb-breadcrumb-item [ngClass]="item.getClasses()">
+    <mdb-breadcrumb-item [routerLink]="item.getLink()"
+                         routerLinkActive="active"
+                         [routerLinkActiveOptions]="{exact:true}">
       <ng-container [ngTemplateOutlet]="wgenIcon"
                     [ngTemplateOutletContext]="model.icon?{iconModel:model.icon}:{iconModel:item.icon}">
       </ng-container>
@@ -13,11 +15,9 @@
   <ng-container *ngIf="iconModel && iconModel.type=='fa'">
     <mdb-icon far [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
   </ng-container>
-
   <ng-container *ngIf="iconModel && iconModel.type=='fab'">
     <mdb-icon fab [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
   </ng-container>
-
   <ng-container *ngIf="iconModel && iconModel.type=='fas'">
     <mdb-icon fas [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
   </ng-container>

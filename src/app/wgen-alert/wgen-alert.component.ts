@@ -18,7 +18,7 @@ export class WgenAlertComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.renderer.addClass(this.alert.nativeElement, 'wgen-alert-' + this.color.valueOf());
+    this.renderer.addClass(this.alert.nativeElement, 'alert-' + this.color.valueOf());
   }
 
   closeAlert() {

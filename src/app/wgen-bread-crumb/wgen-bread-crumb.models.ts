@@ -8,7 +8,8 @@ export class WgenBreadCrumbModel {
   constructor(public items?: WgenBreadCrumbItemModel[],
               public bgColor?: WgenColors,
               public textColor?: WgenTextColors,
-              public icon?: WgenIcon) {
+              public icon?: WgenIcon,
+              public autoFill?: boolean) {
     this.init();
   }
 
@@ -28,19 +29,18 @@ export class WgenBreadCrumbModel {
 }
 
 export class WgenBreadCrumbItemModel {
-  private classes: string[] = [];
-
   constructor(public label: string,
               public active?: boolean,
-              public icon?: WgenIcon) {
+              public icon?: WgenIcon,
+              public link: string[] = []) {
     this.init();
   }
 
   private init() {
-    if (this.active) this.classes.push('active');
+
   }
 
-  public getClasses(): string {
-    return this.classes.join(' ');
+  getLink() {
+    return this.link;
   }
 }

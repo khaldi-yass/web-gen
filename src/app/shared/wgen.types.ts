@@ -1,4 +1,5 @@
 export declare type Pos = 'l' | 'r' | 't' | 'b';
+export declare type Vp = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type WgenIconType = 'far' | 'fas' | 'fab' ;
 export declare type WgenIconSize = 'lg' | '2x' | '3x' | '4x' | '5x' ;
 

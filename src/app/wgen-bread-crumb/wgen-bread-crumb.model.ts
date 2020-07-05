@@ -1,15 +1,15 @@
 import {WgenColors, WgenTextColors} from '../shared/wgen.types';
-import {WgenIcon} from '../shared/wgen.models';
+import {WgenIconModel} from '../wgen-icon/wgen-icon.model';
 
 export class WgenBreadCrumbModel {
   private classes: string[] = [];
   private customClasses: string[] = [];
 
   constructor(public items?: WgenBreadCrumbItemModel[],
-              public bgColor?: WgenColors,
-              public textColor?: WgenTextColors,
-              public icon?: WgenIcon,
-              public autoFill?: boolean) {
+              public bgColor: WgenColors = 'indigo',
+              public textColor: WgenTextColors = 'white-text',
+              public icon?: WgenIconModel,
+              public resolveFromRoute: boolean = true) {
     this.init();
   }
 
@@ -31,7 +31,7 @@ export class WgenBreadCrumbModel {
 export class WgenBreadCrumbItemModel {
   constructor(public label: string,
               public active?: boolean,
-              public icon?: WgenIcon,
+              public icon?: WgenIconModel,
               public link: string[] = []) {
     this.init();
   }

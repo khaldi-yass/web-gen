@@ -3,22 +3,8 @@
     <mdb-breadcrumb-item [routerLink]="item.getLink()"
                          routerLinkActive="active"
                          [routerLinkActiveOptions]="{exact:true}">
-      <ng-container [ngTemplateOutlet]="wgenIcon"
-                    [ngTemplateOutletContext]="model.icon?{iconModel:model.icon}:{iconModel:item.icon}">
-      </ng-container>
+      <wgen-icon [model]="model.icon?model.icon:item.icon"></wgen-icon>
       {{item.label}}
     </mdb-breadcrumb-item>
   </ng-container>
 </mdb-breadcrumb>
-
-<ng-template #wgenIcon let-iconModel="iconModel">
-  <ng-container *ngIf="iconModel && iconModel.type=='fa'">
-    <mdb-icon far [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
-  </ng-container>
-  <ng-container *ngIf="iconModel && iconModel.type=='fab'">
-    <mdb-icon fab [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
-  </ng-container>
-  <ng-container *ngIf="iconModel && iconModel.type=='fas'">
-    <mdb-icon fas [icon]="iconModel.name" [size]="iconModel.size" [ngClass]="iconModel.getClasses()"></mdb-icon>
-  </ng-container>
-</ng-template>

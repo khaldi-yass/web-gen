@@ -1,6 +1,6 @@
-import {WgenIconSize, WgenIconType, WgenTextColors} from './wgen.types';
+import {WgenIconSize, WgenIconType, WgenTextColors} from '../shared/wgen.types';
 
-export class WgenIcon {
+export class WgenIconModel {
   private classes: string[] = [];
 
   constructor(public type: WgenIconType,

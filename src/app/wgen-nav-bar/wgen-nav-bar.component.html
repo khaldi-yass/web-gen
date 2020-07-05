@@ -1,0 +1,24 @@
+<mdb-navbar *ngIf="model" [containerInside]="false" [SideClass]="model.getSideClasses()">
+  <links>
+    <ul *ngFor="let itemGroup of model.itemGroups" [ngClass]="itemGroup.getClasses()">
+      <ng-container *ngFor="let item of itemGroup.items">
+        <!--For Solo Item-->
+        <li *ngIf="!item.children" [ngClass]="item.getSoloItemClasses()">
+          <a *ngIf="item.link" [ngClass]="item.getLinkClasses()" wgenRipple>
+            {{item.label}}
+            <wgen-icon *ngIf="item.icon" [model]="item.icon"></wgen-icon>
+            <wgen-image *ngIf="item.image" [model]="item.image"></wgen-image>
+          </a>
+        </li>
+        <!--For Parent Item-->
+        <li *ngIf="item.children" [ngClass]="item.getParentItemClasses()" dropdown>
+          <a dropdownToggle wgenRipple type="button" class="nav-link dropdown-toggle waves-light">
+            {{item.label}}<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary">
+            <a *ngFor="let child of item.children" class="dropdown-item waves-light" wgenRipple>{{child.label}}</a>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </links>
+</mdb-navbar>

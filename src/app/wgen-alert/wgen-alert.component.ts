@@ -1,5 +1,6 @@
 import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {WgenAlertColor} from '../shared/wgen.types';
+import {WgenIconModel} from '../wgen-icon/wgen-icon.model';
 
 @Component({
   selector: 'wgen-alert',
@@ -13,12 +14,14 @@ export class WgenAlertComponent implements OnInit {
   @Input() emphasis: string;
   @ViewChild('alert', {static: true}) alert: ElementRef;
   @ViewChild('alertContainer', {static: true}) alertContainer: ElementRef;
+  public closeIcon: WgenIconModel;
 
   constructor(private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
     this.renderer.addClass(this.alert.nativeElement, 'alert-' + this.color.valueOf());
+    this.closeIcon = new WgenIconModel('far', 'fa-times-circle');
   }
 
   closeAlert() {

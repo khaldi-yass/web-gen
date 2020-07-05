@@ -1,0 +1,140 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+$primary: #884aa8;
+$secondary: rgba(190, 160, 200, 0.4);
+$transition: all 0.5s;
+
+#wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+a {
+  @include transition($transition);
+
+  &:hover, &:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+
+#sidebar {
+  min-height: 100vh;
+  min-width: 270px;
+  max-width: 270px;
+  background-image: url("https://wallpaperaccess.com/full/1321366.jpg"), linear-gradient(to top, rgb(173, 74, 74), rgba(10, 30, 210, 0.5));
+  background-blend-mode: overlay;
+  background-size: cover;
+  @include transition($transition);
+
+  &.collapsed {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+
+    ul.components {
+      li { //Menu item component
+        font-size: 14px;
+
+        a { //Menu item link
+          padding: 10px 0;
+
+          span { //Menu item icon
+            margin-right: 0;
+            display: block;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    .logo { //Logo
+      font-size: 100%;
+    }
+  }
+
+  .logo {
+    display: block;
+    word-wrap: break-word;
+    color: $white;
+    font-weight: 900;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 10px;
+    @include transition($transition);
+  }
+
+  ul.components {
+    padding: 0;
+    @include transition($transition);
+  }
+
+  ul {
+    li {
+      font-size: 16px;
+
+      > ul {
+        margin-left: 10px;
+
+        li {
+          font-size: 14px;
+        }
+      }
+
+      a {
+        padding: 10px 30px;
+        display: block;
+        color: rgba(255, 255, 255, 1);
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+        span {
+          margin-right: 15px;
+          @include media-breakpoint-down(md) {
+            display: block;
+          }
+        }
+
+        &:hover {
+          color: $white;
+        }
+      }
+
+      &.active {
+        > a {
+          background-color: $secondary;
+          color: $white;
+        }
+      }
+    }
+  }
+
+
+  @include media-breakpoint-down(md) {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    margin-left: -80px !important;
+    &.collapsed {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+#sidebarCollapse {
+  span {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+

@@ -1,0 +1,9 @@
+<ng-container *ngIf="model && model.type=='far'">
+  <mdb-icon far [icon]="model.name" [size]="model.size" [ngClass]="model.getClasses()"></mdb-icon>
+</ng-container>
+<ng-container *ngIf="model && model.type=='fab'">
+  <mdb-icon fab [icon]="model.name" [size]="model.size" [ngClass]="model.getClasses()"></mdb-icon>
+</ng-container>
+<ng-container *ngIf="model && model.type=='fas'">
+  <mdb-icon fas [icon]="model.name" [size]="model.size" [ngClass]="model.getClasses()"></mdb-icon>
+</ng-container>

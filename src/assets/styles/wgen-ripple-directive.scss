@@ -1,0 +1,30 @@
+@import "assets/styles/wgen-mixins";
+
+.wgen-ripple-host {
+  position: relative;
+  overflow: hidden !important;
+
+  span.wgen-ripple {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation-name: wgen-ripple-animate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@include keyframes(wgen-ripple-animate) {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: .5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+

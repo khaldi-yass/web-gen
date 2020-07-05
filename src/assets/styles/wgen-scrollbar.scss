@@ -1,0 +1,31 @@
+@import "assets/styles/wgen-mixins";
+
+@include wgen-scrollbar(primary, #4285F4, #F5F5F5); //scrollbar-primary
+@include wgen-scrollbar(secondary, #aa66cc, #F5F5F5); //scrollbar-secondary
+@include wgen-scrollbar(danger, #ff3547, #F5F5F5); //scrollbar-danger
+@include wgen-scrollbar(warning, #FF8800, #F5F5F5); //scrollbar-warning
+@include wgen-scrollbar(success, #00C851, #F5F5F5); //scrollbar-success
+@include wgen-scrollbar(info, #33b5e5, #F5F5F5); //scrollbar-info
+@include wgen-scrollbar(default, #2bbbad, #F5F5F5); //scrollbar-default
+
+@include wgen-gradient-scrollbar(juicy-peach, 'to right, #ffecd2 0%, #fcb69f 100%');
+@include wgen-gradient-scrollbar(young-passion, 'to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%');
+@include wgen-gradient-scrollbar(lady-lips, 'to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%');
+@include wgen-gradient-scrollbar(sunny-morning, '120deg, #f6d365 0%, #fda085 100%');
+@include wgen-gradient-scrollbar(rainy-ashville, 'to top, #fbc2eb 0%, #a6c1ee 100%');
+@include wgen-gradient-scrollbar(frozen-dreams, 'to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%');
+@include wgen-gradient-scrollbar(warm-flame, '45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%');
+@include wgen-gradient-scrollbar(night-fade, 'to top, #a18cd1 0%, #fbc2eb 100%');
+@include wgen-gradient-scrollbar(spring-warmth, 'to top, #fad0c4 0%, #ffd1ff 100%');
+@include wgen-gradient-scrollbar(winter-neva, '120deg, #a1c4fd 0%, #c2e9fb 100%');
+@include wgen-gradient-scrollbar(dusty-grass, '120deg, #d4fc79 0%, #96e6a1 100%');
+@include wgen-gradient-scrollbar(tempting-azure, '120deg, #84fab0 0%, #8fd3f4 100%');
+@include wgen-gradient-scrollbar(heavy-rain, 'to top, #cfd9df 0%, #e2ebf0 100%');
+@include wgen-gradient-scrollbar(amy-crisp, '120deg, #a6c0fe 0%, #f68084 100%');
+@include wgen-gradient-scrollbar(mean-fruit, '120deg, #fccb90 0%, #d57eeb 100%');
+@include wgen-gradient-scrollbar(deep-blue, '120deg, #e0c3fc 0%, #8ec5fc 100%');
+@include wgen-gradient-scrollbar(ripe-malinka, '120deg, #f093fb 0%, #f5576c 100%');
+@include wgen-gradient-scrollbar(cloudy-knoxville, '120deg, #fdfbfb 0%, #ebedee 100%');
+@include wgen-gradient-scrollbar(morpheus-den, 'to top, #30cfd0 0%, #330867 100%');
+@include wgen-gradient-scrollbar(rare-wind, 'to top, #a8edea 0%, #fed6e3 100%');
+@include wgen-gradient-scrollbar(near-moon, 'to top, #5ee7df 0%, #b490ca 100%');

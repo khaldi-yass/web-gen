@@ -9,10 +9,12 @@ import {WgenRootService} from '../shared/wgen-root.service';
 export class WgenTestHomeComponent implements OnInit {
   breadCrumbModel: any;
   breadCrumbModel2: any;
+  navbarModel: any;
 
   constructor(private root: WgenRootService) {
     this.breadCrumbModel = this.root.breadCrumbModel();
     this.breadCrumbModel2 = this.root.breadCrumbModel2();
+    this.navbarModel = this.root.getNavbar();
   }
 
   ngOnInit(): void {

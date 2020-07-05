@@ -1,0 +1,67 @@
+@mixin wgen-vendors($name, $value, $prefix) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$prefix}#{$vendor}#{$name}: #{$value};
+  }
+}
+
+@mixin wgen-scrollbar($c-name, $th-color, $bg-color) {
+  .wgen-scrollbar-#{$c-name} {
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #{$bg-color};
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      opacity: .2;
+      background-color: #{$bg-color};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: $th-color;
+    }
+  }
+}
+
+@mixin wgen-gradient-scrollbar($c-name, $linear-gradient){
+  .wgen-scrollbar-#{$c-name} {
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-image: linear-gradient(#{$linear-gradient});
+    }
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

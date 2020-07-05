@@ -1,0 +1,17 @@
+<div id="wrapper">
+
+  <nav id="sidebar" [ngClass]="collapsed?'collapsed':''">
+    <div class="logo">MDBCDABSC</div>
+    <ul class="list-unstyled components mb-5">
+      <li wgenRipple class="active"><a href="#"><span class="fa fa-home"></span> Home</a></li>
+      <li wgenRipple><a href="#"><span class="fa fa-user"></span> About</a></li>
+      <li wgenRipple><a href="#"><span class="fa fa-sticky-note"></span> Blog</a></li>
+      <li wgenRipple><a href="#"><span class="fa fa-cogs"></span> Services</a></li>
+      <li wgenRipple><a href="#"><span class="fa fa-paper-plane"></span> Contacts</a></li>
+    </ul>
+  </nav>
+
+  <div id="content">
+    <ng-content></ng-content>
+  </div>
+</div>

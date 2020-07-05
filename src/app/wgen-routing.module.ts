@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AppComponent} from './app.component';
 import {WgenTestHomeComponent} from './wgen-test-home/wgen-test-home.component';
 import {WgenTestPage1Component} from './wgen-test-home/wgen-test-page1/wgen-test-page1.component';
 import {WgenTestPage2Component} from './wgen-test-home/wgen-test-page2/wgen-test-page2.component';
@@ -8,7 +7,7 @@ import {WgenTestPage21Component} from './wgen-test-home/wgen-test-page2/wgen-tes
 
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', redirectTo: 'test', pathMatch: 'full'},
   {
     path: 'test', component: WgenTestHomeComponent, children: [
       {path: 'p1', component: WgenTestPage1Component},
@@ -25,5 +24,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class WgenRoutingModule {
 }

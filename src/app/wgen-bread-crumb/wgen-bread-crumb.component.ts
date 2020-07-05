@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WgenBreadCrumbItemModel, WgenBreadCrumbModel} from './wgen-bread-crumb.models';
+import {WgenBreadCrumbItemModel, WgenBreadCrumbModel} from './wgen-bread-crumb.model';
 import {NavigationStart, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ export class WgenBreadCrumbComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.model.autoFill) {
+    if (this.model.resolveFromRoute) {
       this.router.events
         .pipe(filter(event => event instanceof NavigationStart))
         .subscribe((value: NavigationStart) => {

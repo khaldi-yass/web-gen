@@ -1,23 +1,44 @@
 <mdb-navbar *ngIf="model" [containerInside]="false" [SideClass]="model.getSideClasses()">
-  <links>
+
+  <mdb-navbar-brand *ngIf="model.brand">
+    <a *ngIf="model.brand.link" class="navbar-brand" [href]="model.brand.link">
+      <wgen-icon *ngIf="model.brand.icon" [model]="model.brand.icon"></wgen-icon>
+      <wgen-image *ngIf="model.brand.image" [model]="model.brand.image"></wgen-image>
+      {{model.brand.label}}
+    </a>
+    <span *ngIf="!model.brand.link" class="navbar-brand">
+      <wgen-icon *ngIf="model.brand.icon" [model]="model.brand.icon"></wgen-icon>
+      <wgen-image *ngIf="model.brand.image" [model]="model.brand.image"></wgen-image>
+      {{model.brand.label}}
+    </span>
+  </mdb-navbar-brand>
+
+  <links *ngIf="model.itemGroups">
     <ul *ngFor="let itemGroup of model.itemGroups" [ngClass]="itemGroup.getClasses()">
-      <ng-container *ngFor="let item of itemGroup.items">
-        <!--For Solo Item-->
-        <li *ngIf="!item.children" [ngClass]="item.getSoloItemClasses()">
-          <a *ngIf="item.link" [ngClass]="item.getLinkClasses()" wgenRipple>
-            {{item.label}}
-            <wgen-icon *ngIf="item.icon" [model]="item.icon"></wgen-icon>
-            <wgen-image *ngIf="item.image" [model]="item.image"></wgen-image>
-          </a>
-        </li>
-        <!--For Parent Item-->
-        <li *ngIf="item.children" [ngClass]="item.getParentItemClasses()" dropdown>
-          <a dropdownToggle wgenRipple type="button" class="nav-link dropdown-toggle waves-light">
-            {{item.label}}<span class="caret"></span></a>
-          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary">
-            <a *ngFor="let child of item.children" class="dropdown-item waves-light" wgenRipple>{{child.label}}</a>
-          </div>
-        </li>
+      <ng-container *ngIf="itemGroup.items">
+        <ng-container *ngFor="let item of itemGroup.items">
+          <!--For Solo Item-->
+          <li *ngIf="!item.children" [ngClass]="item.getSoloItemClasses()">
+            <a *ngIf="item.link" [ngClass]="item.getLinkClasses()" wgenRipple>
+              <wgen-icon *ngIf="item.icon" [model]="item.icon"></wgen-icon>
+              <wgen-image *ngIf="item.image" [model]="item.image"></wgen-image>
+              {{item.label}}
+            </a>
+            <span *ngIf="!item.link" [ngClass]="item.getLinkClasses()" wgenRipple>
+              <wgen-icon *ngIf="item.icon" [model]="item.icon"></wgen-icon>
+              <wgen-image *ngIf="item.image" [model]="item.image"></wgen-image>
+              {{item.label}}
+            </span>
+          </li>
+          <!--For Parent Item-->
+          <li *ngIf="item.children" [ngClass]="item.getParentItemClasses()" dropdown>
+            <a dropdownToggle wgenRipple type="button" class="nav-link dropdown-toggle waves-light">
+              {{item.label}}<span class="caret"></span></a>
+            <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary">
+              <a *ngFor="let child of item.children" class="dropdown-item waves-light" wgenRipple>{{child.label}}</a>
+            </div>
+          </li>
+        </ng-container>
       </ng-container>
     </ul>
   </links>

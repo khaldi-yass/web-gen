@@ -1,6 +1,8 @@
-import {Component, ContentChild, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, ContentChild, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {WgenSideNavService} from './wgen-side-nav.service';
 import {Subscription} from 'rxjs';
+import {WgenNavBarModel} from '../wgen-nav-bar/wgen-nav-bar.model';
+import {WgenSideNavModel} from './wgen-side-nav.model';
 
 @Component({
   selector: 'wgen-side-nav',
@@ -12,6 +14,7 @@ export class WgenSideNavComponent implements OnInit, OnDestroy {
   collapsed: boolean;
   private sub = new Subscription();
   @ContentChild('content') content: ElementRef;
+  @Input() model: WgenSideNavModel;
 
   constructor(private service: WgenSideNavService) {
   }

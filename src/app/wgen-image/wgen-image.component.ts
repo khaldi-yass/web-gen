@@ -14,6 +14,7 @@ export class WgenImageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.model);
   }
 
 }

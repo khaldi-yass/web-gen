@@ -1,7 +1,9 @@
-export declare type Pos = 'l' | 'r' | 't' | 'b';
+export declare type Pos = 'left' | 'right' | 'top' | 'bottom';
 export declare type Vp = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type WgenIconType = 'far' | 'fas' | 'fab' ;
 export declare type WgenIconSize = 'lg' | '2x' | '3x' | '4x' | '5x' ;
+export declare type WgenBlendMode = 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'saturation'
+  | 'color' | 'luminosity' ;
 
 export declare type WgenAlertColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' ;
 
@@ -57,3 +59,10 @@ export declare type WgenColors = 'elegant-color' | 'elegant-color-dark' | 'styli
   | 'blue-grey darken-2' | 'blue-grey darken-3' | 'black' | 'white' | 'mdb-color lighten-5' | 'mdb-color lighten-4' | 'mdb-color lighten-3'
   | 'mdb-color lighten-2' | 'mdb-color lighten-1' | 'mdb-color' | 'mdb-color darken-1' | 'mdb-color darken-2' | 'mdb-color darken-3'
   | 'mdb-color darken-4' | 'transparent';
+
+export class WgenGradient {
+  constructor(public colors?: WgenColors[],
+              public direction?: Pos,
+              public blendMode?: WgenBlendMode) {
+  }
+}

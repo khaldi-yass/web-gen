@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WgenNavModel} from './wgen-nav-bar.model';
+import {WgenNavBarModel} from './wgen-nav-bar.model';
 
 @Component({
   selector: 'wgen-nav-bar',
@@ -8,8 +8,8 @@ import {WgenNavModel} from './wgen-nav-bar.model';
 })
 export class WgenNavBarComponent implements OnInit {
 
-  @Input() model: WgenNavModel;
-
+  @Input() model: WgenNavBarModel;
+  console = console;
   constructor() {
   }
 

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WgenRootService} from '../shared/wgen-root.service';
+import {WgenNavBarModel} from '../wgen-nav-bar/wgen-nav-bar.model';
+import {WgenSideNavModel} from '../wgen-side-nav/wgen-side-nav.model';
 
 @Component({
   selector: 'wgen-test-home',
@@ -7,17 +9,16 @@ import {WgenRootService} from '../shared/wgen-root.service';
   styleUrls: ['./wgen-test-home.component.scss']
 })
 export class WgenTestHomeComponent implements OnInit {
-  breadCrumbModel: any;
-  breadCrumbModel2: any;
-  navbarModel: any;
+
+  public navBar: WgenNavBarModel;
+  public sideNav: WgenSideNavModel;
 
   constructor(private root: WgenRootService) {
-    this.breadCrumbModel = this.root.breadCrumbModel();
-    this.breadCrumbModel2 = this.root.breadCrumbModel2();
-    this.navbarModel = this.root.getNavbar();
   }
 
   ngOnInit(): void {
+    this.navBar = this.root.navBar();
+    this.sideNav = this.root.sideNav();
   }
 
 }

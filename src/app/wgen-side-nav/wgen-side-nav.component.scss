@@ -1,6 +1,6 @@
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap/scss/variables';
-@import 'node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
 
 $primary: #884aa8;
 $secondary: rgba(190, 160, 200, 0.4);
@@ -11,7 +11,7 @@ $transition: all 0.5s;
   align-items: stretch;
 }
 
-a {
+.item {
   @include transition($transition);
 
   &:hover, &:focus {
@@ -23,8 +23,8 @@ a {
 
 #sidebar {
   min-height: 100vh;
-  min-width: 270px;
-  max-width: 270px;
+  min-width: 240px;
+  max-width: 240px;
   background-image: url("https://wallpaperaccess.com/full/1321366.jpg"), linear-gradient(to top, rgb(173, 74, 74), rgba(10, 30, 210, 0.5));
   background-blend-mode: overlay;
   background-size: cover;
@@ -39,7 +39,7 @@ a {
       li { //Menu item component
         font-size: 14px;
 
-        a { //Menu item link
+        .item { //Menu item link
           padding: 10px 0;
 
           span { //Menu item icon
@@ -51,19 +51,21 @@ a {
       }
     }
 
-    .logo { //Logo
+    .brand { //brand
       font-size: 100%;
+      text-align: center;
+      padding: 10px;
     }
   }
 
-  .logo {
+  .brand {
     display: block;
     word-wrap: break-word;
     color: $white;
     font-weight: 900;
-    font-size: 40px;
-    text-align: center;
-    margin: 0 10px;
+    font-size: 30px;
+    text-align: left;
+    padding: 20px 0 20px 20px;
     @include transition($transition);
   }
 
@@ -76,6 +78,10 @@ a {
     li {
       font-size: 16px;
 
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
       > ul {
         margin-left: 10px;
 
@@ -84,7 +90,7 @@ a {
         }
       }
 
-      a {
+      .item {
         padding: 10px 30px;
         display: block;
         color: rgba(255, 255, 255, 1);
@@ -103,7 +109,7 @@ a {
       }
 
       &.active {
-        > a {
+        > .item {
           background-color: $secondary;
           color: $white;
         }

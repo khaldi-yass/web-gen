@@ -2,10 +2,11 @@ import {Vp, WgenColors} from '../shared/wgen.types';
 import {WgenIconModel} from '../wgen-icon/wgen-icon.model';
 import {WgenImageModel} from '../wgen-image/wgen-image.model';
 
-export class WgenNavModel {
+export class WgenNavBarModel {
   private sideClasses: string[] = ['navbar'];
 
-  constructor(public itemGroups?: WgenNavGroupModel[],
+  constructor(public brand: WgenNavBarItemModel,
+              public itemGroups?: WgenNavBarGroupModel[],
               public color: WgenColors = 'indigo',
               public expandAt: Vp = 'lg',
               public theme: 'light' | 'dark' = 'dark') {
@@ -23,10 +24,10 @@ export class WgenNavModel {
   }
 }
 
-export class WgenNavGroupModel {
+export class WgenNavBarGroupModel {
   private classes: string[] = ['navbar-nav'];
 
-  constructor(public items?: WgenNavItemModel[],
+  constructor(public items?: WgenNavBarItemModel[],
               public spacer?: 'left' | 'right') {
     this.init();
   }
@@ -41,7 +42,7 @@ export class WgenNavGroupModel {
   }
 }
 
-export class WgenNavItemModel {
+export class WgenNavBarItemModel {
   private soloItemClasses: string[] = ['nav-item'];
   private parentItemClasses: string[] = ['nav-item dropdown'];
   private linkClasses: string[] = ['nav-link'];
@@ -51,13 +52,14 @@ export class WgenNavItemModel {
               public image?: WgenImageModel,
               public link?: string,
               public active?: boolean,
-              public children?: WgenNavItemModel[]) {
+              public children?: WgenNavBarItemModel[]) {
     this.init();
   }
 
   private init() {
     this.linkClasses.push('waves-light');
     if (this.active) this.soloItemClasses.push('active');
+    if (!this.link) this.soloItemClasses.push('cursor-default');
   }
 
   public getSoloItemClasses() {

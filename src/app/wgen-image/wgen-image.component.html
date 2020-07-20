@@ -1,1 +1,3 @@
-<img [src]="model.url" [alt]="model.alt" [height]="model.height" [width]="model.width">
+<ng-container *ngIf="model">
+  <img [src]="model.url" [alt]="model.alt" [height]="model.height" [width]="model.width">
+</ng-container>

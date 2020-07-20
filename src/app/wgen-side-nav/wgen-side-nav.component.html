@@ -1,13 +1,21 @@
-<div id="wrapper">
-
-  <nav id="sidebar" [ngClass]="collapsed?'collapsed':''">
-    <div class="logo">MDBCDABSC</div>
+<div *ngIf="model" id="wrapper">
+  <nav id="sidebar" [ngClass]="collapsed ? 'collapsed' : ''">
+    <div *ngIf="model.brand" class="brand" wgenRipple>
+      <wgen-icon *ngIf="model.brand.icon" [model]="model.brand.icon"></wgen-icon>
+      <wgen-image *ngIf="model.brand.image" [model]="model.brand.image"></wgen-image>
+      {{model.brand.label}}
+    </div>
     <ul class="list-unstyled components mb-5">
-      <li wgenRipple class="active"><a href="#"><span class="fa fa-home"></span> Home</a></li>
-      <li wgenRipple><a href="#"><span class="fa fa-user"></span> About</a></li>
-      <li wgenRipple><a href="#"><span class="fa fa-sticky-note"></span> Blog</a></li>
-      <li wgenRipple><a href="#"><span class="fa fa-cogs"></span> Services</a></li>
-      <li wgenRipple><a href="#"><span class="fa fa-paper-plane"></span> Contacts</a></li>
+
+      <li *ngFor="let item of model.items" wgenRipple
+          [ngClass]="item.getClasses()">
+        <a *ngIf="item.link" class="item"
+           [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <span><wgen-icon [model]="item.icon"></wgen-icon></span>
+          {{item.label}}</a>
+        <span *ngIf="!item.link" class="item">
+          <span><wgen-icon [model]="item.icon"></wgen-icon></span>{{item.label}}</span>
+      </li>
     </ul>
   </nav>
 
